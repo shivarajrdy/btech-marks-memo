@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B.Tech Marks Memo - Verification Portal</title>
+    <style>
+        body {
+            background: #eef2f3;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 30px;
+        }
+        .memo-container {
+            max-width: 750px;
+            background: #ffffff;
+            margin: auto;
+            padding: 40px;
+            border: 6px double #003366;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 5px 0; color: #003366; font-size: 24px; }
+        .header p { margin: 2px 0; color: #555; font-size: 14px; }
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+        th {
+            background-color: #003366;
+            color: white;
+        }
+        .summary {
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            border-top: 1px dashed #999;
+            padding-top: 20px;
+        }
+        .error-box {
+            text-align: center;
+            padding: 40px;
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="memo-container" id="memoContent">
+        <div class="error-box"><h2>Loading Marks Memo...</h2></div>
+    </div>
+
+    <script>
+        // Sample database registry for frontend deployment
+        const studentDatabase = {
+            "21A91A0501": {
+                name: "Rahul Sharma",
+                branch: "CSE",
+                semester: 4,
+                subjects: [
+                    { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
+                    { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
+                    { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
+                    { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
+                ]
+            }
+            // You can add more roll numbers here easily!
+        };
+
+        // Extract roll_no from URL parameters (e.g., ?roll_no=21A91A0501)
+        const urlParams = new URLSearchParams(window.location.search);
+        const rollNo = urlParams.get('roll_no');
+        const container = document.getElementById('memoContent');
+
+        if (rollNo && studentDatabase[rollNo]) {
+            const student = studentDatabase[rollNo];
+            let totalCredits = 0;
+            let tableRows = '';
+
+            student.subjects.forEach(sub => {
+                totalCredits += sub.credits;
+                let totalMarks = sub.internal + sub.external;
+                tableRows += `
+                    <tr>
+                        <td>${sub.code}</td>
+                        <td>${sub.name}</td>
+                        <td>${sub.credits}</td>
+                        <td>${sub.internal}</td>
+                        <td>${sub.external}</td>
+                        <td>${totalMarks}</td>
+                        <td>${sub.grade}</td>
+                    </tr>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="header">
+                    <h2>JAWAHARLAL TECHNOLOGICAL UNIVERSITY</h2>
+                    <p>B.Tech Semester Examination Marks Memo</p>
+                </div>
+                
+                <div class="student-info">
+                    <div><strong>Student Name:</strong> ${student.name}</div>
+                    <div><strong>Roll Number:</strong> ${rollNo}</div>
+                    <div><strong>Branch:</strong> ${student.branch}</div>
+                    <div><strong>Semester:</strong> ${student.semester}</div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Credits</th>
+                            <th>Internal</th>
+                            <th>External</th>
+                            <th>Total (100)</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+                </table>
+
+                <div class="summary">
+                    <p>Total Credits Registered: ${totalCredits}</p>
+                    <p>Status: PASSED</p>
+                </div>
+
+                <div class="footer">
+                    <div>Date of Issue: October 2026</div>
+                    <div>Controller of Examinations</div>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="error-box">
+                    <h2>Invalid or Missing Roll Number</h2>
+                    <p>Please scan a valid student QR code or provide a roll number parameter in the URL (e.g., <code>?roll_no=21A91A0501</code>).</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
