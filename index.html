@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>B.Tech Marks Memo - Verification Portal</title>
+    <title>B.Tech Marks Memo - Secure Verification Portal</title>
     <style>
         body {
             background: #eef2f3;
@@ -80,9 +80,10 @@
     </div>
 
     <script>
-        // Sample database registry for frontend deployment
+        // Database registry mapped by unique security tokens
         const studentDatabase = {
-            "21A91A0501": {
+            "YOUR_TOKEN_HERE": {
+                rollNo: "21A91A0501",
                 name: "Rahul Sharma",
                 branch: "CSE",
                 semester: 4,
@@ -93,16 +94,15 @@
                     { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
                 ]
             }
-            // You can add more roll numbers here easily!
         };
 
-        // Extract roll_no from URL parameters (e.g., ?roll_no=21A91A0501)
+        // Extract token parameter from the URL (e.g., ?token=abc123xyz...)
         const urlParams = new URLSearchParams(window.location.search);
-        const rollNo = urlParams.get('roll_no');
+        const token = urlParams.get('token');
         const container = document.getElementById('memoContent');
 
-        if (rollNo && studentDatabase[rollNo]) {
-            const student = studentDatabase[rollNo];
+        if (token && studentDatabase[token]) {
+            const student = studentDatabase[token];
             let totalCredits = 0;
             let tableRows = '';
 
@@ -130,7 +130,7 @@
                 
                 <div class="student-info">
                     <div><strong>Student Name:</strong> ${student.name}</div>
-                    <div><strong>Roll Number:</strong> ${rollNo}</div>
+                    <div><strong>Roll Number:</strong> ${student.rollNo}</div>
                     <div><strong>Branch:</strong> ${student.branch}</div>
                     <div><strong>Semester:</strong> ${student.semester}</div>
                 </div>
@@ -165,8 +165,8 @@
         } else {
             container.innerHTML = `
                 <div class="error-box">
-                    <h2>Invalid or Missing Roll Number</h2>
-                    <p>Please scan a valid student QR code or provide a roll number parameter in the URL (e.g., <code>?roll_no=21A91A0501</code>).</p>
+                    <h2>Invalid or Expired Security Token</h2>
+                    <p>This verification link is invalid, or the security token was not provided.</p>
                 </div>
             `;
         }
