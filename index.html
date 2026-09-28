@@ -81,20 +81,36 @@
 
     <script>
         // Database registry mapped by unique security tokens
+        // const studentDatabase = {
+        //     "YOUR_TOKEN_HERE": {
+        //         rollNo: "21A91A0501",
+        //         name: "Rahul Sharma",
+        //         branch: "CSE",
+        //         semester: 4,
+        //         subjects: [
+        //             { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
+        //             { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
+        //             { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
+        //             { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
+        //         ]
+        //     }
+        // };
+
+
         const studentDatabase = {
-            "YOUR_TOKEN_HERE": {
-                rollNo: "21A91A0501",
-                name: "Rahul Sharma",
-                branch: "CSE",
-                semester: 4,
-                subjects: [
-                    { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
-                    { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
-                    { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
-                    { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
-                ]
-            }
-        };
+    "248891deab574c4b8173a6dead509b24": {
+        rollNo: "21A91A0501",
+        name: "Rahul Sharma",
+        branch: "CSE",
+        semester: 4,
+        subjects: [
+            { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
+            { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
+            { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
+            { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
+        ]
+    }
+};
 
         // Extract token parameter from the URL (e.g., ?token=abc123xyz...)
         const urlParams = new URLSearchParams(window.location.search);
