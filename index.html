@@ -2,69 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>B.Tech Marks Memo - Secure Verification Portal</title>
+    <title>Narsimha Reddy Engineering College - Marks Memo</title>
     <style>
         body {
-            background: #eef2f3;
-            font-family: 'Times New Roman', Times, serif;
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 30px;
+            padding: 20px;
         }
         .memo-container {
-            max-width: 750px;
+            max-width: 800px;
             background: #ffffff;
             margin: auto;
-            padding: 40px;
-            border: 6px double #003366;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .header {
+        .college-header {
+            background-color: #5b1184; /* NRCM Purple Theme */
+            color: white;
             text-align: center;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .header h2 { margin: 5px 0; color: #003366; font-size: 24px; }
-        .header p { margin: 2px 0; color: #555; font-size: 14px; }
-        .student-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            background: #f9f9f9;
             padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+            margin-bottom: 15px;
         }
-        table {
+        .college-header h2 { margin: 0; font-size: 20px; letter-spacing: 1px; }
+        .college-header p { margin: 5px 0 0; font-size: 11px; }
+        .results-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+        .info-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        th, td {
-            border: 1px solid #999;
-            padding: 10px;
+        .info-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            font-size: 13px;
+        }
+        .marks-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .marks-table th, .marks-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
             text-align: center;
-            font-size: 14px;
+            font-size: 12px;
         }
-        th {
-            background-color: #003366;
-            color: white;
+        .marks-table th {
+            background-color: #f2f2f2;
+            color: #000;
         }
-        .summary {
-            font-size: 16px;
-            margin-bottom: 30px;
+        .marks-table td:nth-child(3) {
+            text-align: left; /* Subject name left aligned */
+        }
+        .summary-section {
+            font-size: 13px;
             font-weight: bold;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 40px;
         }
         .footer {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            font-size: 14px;
+            text-align: right;
+            font-size: 13px;
             font-weight: bold;
-            border-top: 1px dashed #999;
-            padding-top: 20px;
+            margin-top: 40px;
         }
         .error-box {
             text-align: center;
@@ -80,87 +89,77 @@
     </div>
 
     <script>
-        // Database registry mapped by unique security tokens
-        // const studentDatabase = {
-        //     "YOUR_TOKEN_HERE": {
-        //         rollNo: "21A91A0501",
-        //         name: "Rahul Sharma",
-        //         branch: "CSE",
-        //         semester: 4,
-        //         subjects: [
-        //             { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
-        //             { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
-        //             { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
-        //             { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
-        //         ]
-        //     }
-        // };
-
-
+        // Database mapped by your unique secure token
         const studentDatabase = {
-    "248891deab574c4b8173a6dead509b24": {
-        rollNo: "21A91A0501",
-        name: "THARUN KUMAR",
-        branch: "CSE",
-        semester: 4,
-        subjects: [
-            { code: "CS401", name: "Data Structures", credits: 4, internal: 22, external: 58, grade: "A" },
-            { code: "CS402", name: "Operating Systems", credits: 3, internal: 20, external: 55, grade: "B+" },
-            { code: "CS403", name: "Database Management", credits: 4, internal: 24, external: 62, grade: "A+" },
-            { code: "CS404", name: "Computer Networks", credits: 3, internal: 19, external: 50, grade: "B" }
-        ]
-    }
-};
+            "248891deab574c4b8173a6dead509b24": {
+                htno: "21X01A6720",
+                name: "GUNDETI SHIVA RAJ",
+                fatherName: "GUNDETI LINGANNA",
+                department: "CSE(DS)",
+                examTitle: "Results of IV B.TECH II SEM (NR21), June 2025",
+                sgpa: "6.75",
+                cgpa: "",
+                subjects: [
+                    { sno: 1, subCode: "SM4201MS", name: "ORGANIZATIONAL BEHAVIOR", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
+                    { sno: 2, subCode: "ME4233OE", name: "RENEWABLE ENERGY SOURCES", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
+                    { sno: 3, subCode: "DS4206PE", name: "HUMAN COMPUTER INTERACTION", monthYear: "April 2025", grade: "C", credits: "3.00", status: "PASS" },
+                    { sno: 4, subCode: "DS4202PC", name: "PROJECT STAGE - II", monthYear: "April 2025", grade: "A+", credits: "7.00", status: "PASS" }
+                ]
+            }
+        };
 
-        // Extract token parameter from the URL (e.g., ?token=abc123xyz...)
+        // Extract token from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         const container = document.getElementById('memoContent');
 
         if (token && studentDatabase[token]) {
             const student = studentDatabase[token];
-            let totalCredits = 0;
             let tableRows = '';
 
             student.subjects.forEach(sub => {
-                totalCredits += sub.credits;
-                let totalMarks = sub.internal + sub.external;
                 tableRows += `
                     <tr>
-                        <td>${sub.code}</td>
+                        <td>${sub.sno}</td>
+                        <td>${sub.subCode}</td>
                         <td>${sub.name}</td>
-                        <td>${sub.credits}</td>
-                        <td>${sub.internal}</td>
-                        <td>${sub.external}</td>
-                        <td>${totalMarks}</td>
+                        <td>${sub.monthYear}</td>
                         <td>${sub.grade}</td>
+                        <td>${sub.credits}</td>
+                        <td>${sub.status}</td>
                     </tr>
                 `;
             });
 
             container.innerHTML = `
-                <div class="header">
-                    <h2>MALLAREDDY UNIVERSITY</h2>
-                    <p>B.Tech Semester Examination Marks Memo</p>
+                <div class="college-header">
+                    <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
+                    <p>JAKKULA EDUCATIONAL SOCIETY</p>
                 </div>
                 
-                <div class="student-info">
-                    <div><strong>Student Name:</strong> ${student.name}</div>
-                    <div><strong>Roll Number:</strong> ${student.rollNo}</div>
-                    <div><strong>Branch:</strong> ${student.branch}</div>
-                    <div><strong>Semester:</strong> ${student.semester}</div>
-                </div>
+                <div class="results-title">${student.examTitle}</div>
 
-                <table>
+                <table class="info-table">
+                    <tr>
+                        <td><strong>H.T.No :</strong> ${student.htno}</td>
+                        <td><strong>Name :</strong> ${student.name}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Father Name :</strong> ${student.fatherName}</td>
+                        <td><strong>Department :</strong> ${student.department}</td>
+                    </tr>
+                </table>
+
+                <table class="marks-table">
                     <thead>
                         <tr>
-                            <th>Subject Code</th>
-                            <th>Subject Name</th>
-                            <th>Credits</th>
-                            <th>Internal</th>
-                            <th>External</th>
-                            <th>Total (100)</th>
-                            <th>Grade</th>
+                            <th>S.No</th>
+                            <th>SubCode</th>
+                            <th>Subject</th>
+                            <th>Month & Year</th>
+                            <th>Grades</th>
+                            <th>Credits (C)</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -168,14 +167,13 @@
                     </tbody>
                 </table>
 
-                <div class="summary">
-                    <p>Total Credits Registered: ${totalCredits}</p>
-                    <p>Status: PASSED</p>
+                <div class="summary-section">
+                    <div>SGPA : ${student.sgpa}</div>
+                    <div>CGPA : ${student.cgpa}</div>
                 </div>
 
                 <div class="footer">
-                    <div>Date of Issue: October 2026</div>
-                    <div>Controller of Examinations</div>
+                    Controller of Examinations
                 </div>
             `;
         } else {
