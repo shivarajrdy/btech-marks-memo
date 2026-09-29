@@ -61,26 +61,26 @@
         .top-meta {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             font-size: 12px;
             font-weight: bold;
             margin-bottom: 10px;
         }
         .barcode-box {
             font-family: 'Libre Barcode 39', cursive;
-            font-size: 55px;
-            line-height: 1;
+            font-size: 38px;
+            line-height: 0.9;
             letter-spacing: 0px;
-            margin-bottom: -5px;
         }
         .student-photo {
-            width: 85px;
-            height: 105px;
+            width: 80px;
+            height: 98px;
             border: 1px solid #999;
             object-fit: cover;
             background: #eee;
             text-align: center;
             font-size: 10px;
-            line-height: 105px;
+            line-height: 98px;
             color: #666;
         }
         
@@ -120,7 +120,7 @@
             padding: 6px;
             font-size: 13px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .cgs-info-table {
             width: 100%;
@@ -289,15 +289,16 @@
                         <p style="font-size:9px;">Maisammaguda (V), Dhulapally (P), Near Kompally, Medchal (M), Secunderabad - 500100.</p>
                     </div>
 
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                    <!-- Centered Header Layout matching original document -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <div class="student-photo" style="width:65px; height:80px; line-height:80px; font-size:9px;">PHOTO</div>
-                        <div style="text-align:center;">
-                            <div class="cgs-header-title" style="margin:0; padding:3px 15px; display:inline-block;">CONSOLIDATED GRADE SHEET</div>
-                            <div style="font-size:11px; font-weight:bold; margin-top:3px;">B.Tech. COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</div>
+                        <div style="text-align:center; flex-grow: 1; padding: 0 10px;">
+                            <div class="cgs-header-title" style="margin:0 auto; padding:4px 20px; display:inline-block;">CONSOLIDATED GRADE SHEET</div>
+                            <div style="font-size:11px; font-weight:bold; margin-top:4px;">B.Tech. COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</div>
                         </div>
                         <div style="text-align:right;">
-                            <div class="barcode-box" style="font-size:45px;">*${s.cgsNo}*</div>
-                            <div style="font-size:9px; margin-top: -2px;">Sl.No. <span style="color:red;">${s.slNoCGS}</span></div>
+                            <div class="barcode-box">*${s.cgsNo}*</div>
+                            <div style="font-size:9px; margin-top: 1px;">Sl.No. <span style="color:red;">${s.slNoCGS}</span></div>
                         </div>
                     </div>
 
@@ -320,7 +321,7 @@
                         </tr>
                     </table>
 
-                    <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#5b1184;">ACADEMIC TRANSCRIPT RECORD (1-1 TO 4-2)</div>
+                    <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#5b1184; text-align:center;">ACADEMIC TRANSCRIPT RECORD (1-1 TO 4-2)</div>
                     
                     <div class="cgs-table-grid">
                         <div>
