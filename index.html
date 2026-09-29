@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Narsimha Reddy Engineering College - Official B.Tech Verification Portal</title>
+    <title>Narsimha Reddy Engineering College - Comprehensive B.Tech Transcript & Verification</title>
     <style>
         body {
             background: #eef2f5;
@@ -12,7 +12,7 @@
             color: #000;
         }
         .memo-container {
-            max-width: 850px;
+            max-width: 900px;
             background: #ffffff;
             margin: auto;
             padding: 30px;
@@ -20,15 +20,15 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .college-header {
-            background-color: #5b1184; /* NRCM Purple Theme */
+            background-color: #5b1184;
             color: white;
             text-align: center;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 4px;
         }
-        .college-header h2 { margin: 0; font-size: 22px; letter-spacing: 0.5px; }
-        .college-header p { margin: 5px 0 0; font-size: 12px; letter-spacing: 0.5px; }
+        .college-header h2 { margin: 0; font-size: 22px; }
+        .college-header p { margin: 5px 0 0; font-size: 12px; }
         
         .results-title {
             text-align: center;
@@ -48,14 +48,42 @@
             padding: 8px 12px;
             font-size: 13px;
         }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5b1184;
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .tab-btn.active {
+            background: #5b1184;
+            color: white;
+            border-color: #5b1184;
+        }
+        .sem-section {
+            display: none;
+        }
+        .sem-section.active {
+            display: block;
+        }
         .marks-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .marks-table th, .marks-table td {
             border: 1px solid #444;
-            padding: 8px;
+            padding: 7px;
             text-align: center;
             font-size: 12px;
         }
@@ -64,83 +92,79 @@
             color: white;
         }
         .marks-table td:nth-child(3) {
-            text-align: left; /* Subject name left aligned */
+            text-align: left;
         }
-        .summary-section {
-            display: flex;
-            justify-content: space-between;
+        .summary-box {
             background: #f9f9f9;
             border: 1px solid #444;
-            padding: 12px 20px;
-            font-size: 14px;
+            padding: 10px 15px;
+            font-size: 13px;
             font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .certificates-panel {
+            border: 1px solid #b7e1cd;
+            background: #e2f0d9;
+            padding: 15px;
+            border-radius: 5px;
             margin-bottom: 25px;
         }
-        .additional-certs {
-            border-top: 2px dashed #ccc;
-            padding-top: 15px;
-            margin-bottom: 30px;
-            font-size: 13px;
-        }
-        .additional-certs h4 {
-            margin: 0 0 10px 0;
-            color: #5b1184;
-        }
-        .cert-badge {
-            display: inline-block;
-            background: #e2f0d9;
-            color: #385723;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-right: 10px;
-            border: 1px solid #b7e1cd;
-        }
+        .certificates-panel h4 { margin: 0 0 10px 0; color: #385723; }
+        .cert-item { font-size: 13px; margin-bottom: 5px; font-weight: bold; color: #274e13; }
+        
         .footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-top: 40px;
+            margin-top: 30px;
             font-size: 13px;
             font-weight: bold;
+            border-top: 1px dashed #999;
+            padding-top: 15px;
         }
-        .qr-placeholder {
-            font-size: 11px;
-            color: #666;
-            text-align: center;
-        }
-        .error-box {
-            text-align: center;
-            padding: 50px;
-            color: #cc0000;
-        }
+        .error-box { text-align: center; padding: 50px; color: #cc0000; }
     </style>
 </head>
 <body>
 
     <div class="memo-container" id="memoContent">
-        <div class="error-box"><h2>Loading Official Marks Memo & Certificates...</h2></div>
+        <div class="error-box"><h2>Loading Academic Record (1-1 to 4-2)...</h2></div>
     </div>
 
     <script>
-        // Comprehensive database record mapped by your secure token
+        // Multi-semester database record mapped by secure token
         const studentDatabase = {
             "248891deab574c4b8173a6dead509b24": {
                 htno: "21X01A6720",
                 name: "GUNDETI SHIVA RAJ",
                 fatherName: "GUNDETI LINGANNA",
                 department: "CSE(DS) - Computer Science & Engineering (Data Science)",
-                examTitle: "B.TECH IV YEAR II SEMESTER (NR21) - EXAMINATION RESULTS",
-                sgpa: "6.75",
                 cgpa: "7.42",
-                pccStatus: "Eligible & Verified",
-                cmmStatus: "Available / Ready for Issue",
-                subjects: [
-                    { sno: 1, subCode: "SM4201MS", name: "ORGANIZATIONAL BEHAVIOR", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
-                    { sno: 2, subCode: "ME4233OE", name: "RENEWABLE ENERGY SOURCES", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
-                    { sno: 3, subCode: "DS4206PE", name: "HUMAN COMPUTER INTERACTION", monthYear: "April 2025", grade: "C", credits: "3.00", status: "PASS" },
-                    { sno: 4, subCode: "DS4202PC", name: "PROJECT STAGE - II", monthYear: "April 2025", grade: "A+", credits: "7.00", status: "PASS" }
-                ]
+                pccStatus: "Verified & Issued",
+                cmmStatus: "Available / Consolidated Memo Ready",
+                semesters: {
+                    "1-1": {
+                        title: "B.TECH I YEAR I SEMESTER (NR21)",
+                        sgpa: "7.20",
+                        subjects: [
+                            { sno: 1, subCode: "MA101BS", name: "Matrices and Calculus", monthYear: "Jan 2022", grade: "B+", credits: "4.00", status: "PASS" },
+                            { sno: 2, subCode: "AP102BS", name: "Applied Physics", monthYear: "Jan 2022", grade: "A", credits: "4.00", status: "PASS" },
+                            { sno: 3, subCode: "CS103ES", name: "Programming for Problem Solving", monthYear: "Jan 2022", grade: "A+", credits: "3.00", status: "PASS" }
+                        ]
+                    },
+                    "4-2": {
+                        title: "B.TECH IV YEAR II SEMESTER (NR21)",
+                        sgpa: "6.75",
+                        subjects: [
+                            { sno: 1, subCode: "SM4201MS", name: "ORGANIZATIONAL BEHAVIOR", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
+                            { sno: 2, subCode: "ME4233OE", name: "RENEWABLE ENERGY SOURCES", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "DS4206PE", name: "HUMAN COMPUTER INTERACTION", monthYear: "April 2025", grade: "C", credits: "3.00", status: "PASS" },
+                            { sno: 4, subCode: "DS4202PC", name: "PROJECT STAGE - II", monthYear: "April 2025", grade: "A+", credits: "7.00", status: "PASS" }
+                        ]
+                    }
+                }
             }
         };
 
@@ -150,29 +174,55 @@
 
         if (token && studentDatabase[token]) {
             const student = studentDatabase[token];
-            let tableRows = '';
+            
+            let tabsHTML = '';
+            let sectionsHTML = '';
+            let first = true;
 
-            student.subjects.forEach(sub => {
-                tableRows += `
-                    <tr>
-                        <td>${sub.sno}</td>
-                        <td>${sub.subCode}</td>
-                        <td>${sub.name}</td>
-                        <td>${sub.monthYear}</td>
-                        <td>${sub.grade}</td>
-                        <td>${sub.credits}</td>
-                        <td>${sub.status}</td>
-                    </tr>
+            for (const [semKey, semData] of Object.entries(student.semesters)) {
+                let activeClass = first ? 'active' : '';
+                tabsHTML += `<button class="tab-btn ${activeClass}" onclick="switchSem('${semKey}')">Sem ${semKey}</button>`;
+
+                let rows = '';
+                semData.subjects.forEach(sub => {
+                    rows += `
+                        <tr>
+                            <td>${sub.sno}</td>
+                            <td>${sub.subCode}</td>
+                            <td>${sub.name}</td>
+                            <td>${sub.monthYear}</td>
+                            <td>${sub.grade}</td>
+                            <td>${sub.credits}</td>
+                            <td>${sub.status}</td>
+                        </tr>
+                    `;
+                });
+
+                sectionsHTML += `
+                    <div class="sem-section ${activeClass}" id="sem-${semKey}">
+                        <div class="results-title">${semData.title}</div>
+                        <table class="marks-table">
+                            <thead>
+                               <tr>
+                                   <th>S.No</th><th>SubCode</th><th>Subject</th><th>Month & Year</th><th>Grades</th><th>Credits (C)</th><th>Status</th>
+                               </tr>
+                            </thead>
+                            <tbody>${rows}</tbody>
+                        </table>
+                        <div class="summary-box">
+                            <div>Semester SGPA : ${semData.sgpa}</div>
+                            <div>Status : PASSED</div>
+                        </div>
+                    </div>
                 `;
-            });
+                first = false;
+            }
 
             container.innerHTML = `
                 <div class="college-header">
                     <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
                     <p>Permanently Affiliated to JNTUH | Approved by AICTE, New Delhi</p>
                 </div>
-                
-                <div class="results-title">${student.examTitle}</div>
 
                 <table class="info-table">
                     <tr>
@@ -185,41 +235,26 @@
                     </tr>
                 </table>
 
-                <table class="marks-table">
-                    <thead>
-                        <tr>
-                            <th>S.No</th>
-                            <th>SubCode</th>
-                            <th>Subject</th>
-                            <th>Month & Year</th>
-                            <th>Grades</th>
-                            <th>Credits (C)</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${tableRows}
-                    </tbody>
-                </table>
-
-                <div class="summary-section">
-                    <div>SGPA : ${student.sgpa}</div>
-                    <div>CGPA : ${student.cgpa}</div>
-                    <div>Overall Status : PASSED</div>
+                <div class="certificates-panel">
+                    <h4>Official Degree Credentials & Certificates Status:</h4>
+                    <div class="cert-item">✔ Provisional Certificate (PCC): ${student.pccStatus}</div>
+                    <div class="cert-item">✔ Consolidated Marks Memo (CMM): ${student.cmmStatus}</div>
+                    <div class="cert-item" style="margin-top:8px;">Cumulative Grade Point Average (CGPA): <strong>${student.cgpa}</strong></div>
                 </div>
 
-                <div class="additional-certs">
-                    <h4>Verified Credential Statuses:</h4>
-                    <span class="cert-badge">PCC Status: ${student.pccStatus}</span>
-                    <span class="cert-badge">CMM Status: ${student.cmmStatus}</span>
+                <div style="font-weight:bold; margin-bottom: 8px; font-size: 13px;">Select Semester Transcript:</div>
+                <div class="nav-tabs">
+                    ${tabsHTML}
                 </div>
+
+                ${sectionsHTML}
 
                 <div class="footer">
                     <div>
-                        <p style="margin:0; font-size:11px; color:#555;">Digitally Verified Secure Link</p>
-                        <p style="margin:2px 0 0 0; font-size:10px; color:#888;">Token-Protected Official Transcript</p>
+                        <p style="margin:0; font-size:11px; color:#555;">Secure Web Verification System</p>
+                        <p style="margin:2px 0 0 0; font-size:10px; color:#888;">Token ID: ${token.substring(0,12)}...</p>
                     </div>
-                    <div style="text-align: right;">
+                    <div>
                         <p style="margin-bottom: 25px;">Controller of Examinations</p>
                     </div>
                 </div>
@@ -228,9 +263,16 @@
             container.innerHTML = `
                 <div class="error-box">
                     <h2>Invalid or Expired Security Token</h2>
-                    <p>The security token provided in the URL is invalid or has expired. Please scan a valid QR code.</p>
+                    <p>The security token provided is invalid or unrecognized.</p>
                 </div>
             `;
+        }
+
+        function switchSem(semKey) {
+            document.querySelectorAll('.sem-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('sem-' + semKey).classList.add('active');
+            event.target.classList.add('active');
         }
     </script>
 </body>
