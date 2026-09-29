@@ -2,331 +2,445 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Narsimha Reddy Engineering College - Complete B.Tech Transcript (1-1 to 4-2)</title>
+    <title>Narsimha Reddy Engineering College - Official Transcript & Certificate Verification</title>
     <style>
         body {
-            background: #eef2f5;
-            font-family: Arial, Helvetica, sans-serif;
+            background: #d4d4d4;
+            font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 20px;
             color: #000;
         }
-        .memo-container {
+        .portal-nav {
             max-width: 900px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .doc-btn {
+            background: #5b1184;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .doc-btn.active {
+            background: #380853;
+            border: 2px solid #ffd700;
+        }
+        .document-sheet {
+            display: none;
+            max-width: 850px;
             background: #ffffff;
             margin: auto;
             padding: 30px;
-            border: 2px solid #5b1184;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 8px double #5b1184;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
         }
-        .college-header {
-            background-color: #5b1184;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
-        .college-header h2 { margin: 0; font-size: 22px; }
-        .college-header p { margin: 5px 0 0; font-size: 12px; }
-        
-        .results-title {
-            text-align: center;
-            font-weight: bold;
-            font-size: 15px;
-            text-decoration: underline;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        .info-table td {
-            border: 1px solid #444;
-            padding: 8px 12px;
-            font-size: 13px;
-        }
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #5b1184;
-            padding-bottom: 10px;
-        }
-        .tab-btn {
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-        .tab-btn.active {
-            background: #5b1184;
-            color: white;
-            border-color: #5b1184;
-        }
-        .sem-section {
-            display: none;
-        }
-        .sem-section.active {
+        .document-sheet.active {
             display: block;
         }
-        .marks-table {
-            width: 100%;
-            border-collapse: collapse;
+        /* College Header */
+        .college-header {
+            text-align: center;
+            border-bottom: 2px solid #5b1184;
+            padding-bottom: 10px;
             margin-bottom: 15px;
         }
-        .marks-table th, .marks-table td {
-            border: 1px solid #444;
-            padding: 7px;
-            text-align: center;
-            font-size: 12px;
-        }
-        .marks-table th {
-            background-color: #5b1184;
-            color: white;
-        }
-        .marks-table td:nth-child(3) {
-            text-align: left;
-        }
-        .summary-box {
-            background: #f9f9f9;
-            border: 1px solid #444;
-            padding: 10px 15px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .college-header h2 { margin: 0; font-size: 21px; color: #5b1184; letter-spacing: 0.5px; }
+        .college-header p { margin: 3px 0; font-size: 11px; color: #333; }
+        
+        .top-meta {
             display: flex;
             justify-content: space-between;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .certificates-panel {
-            border: 1px solid #b7e1cd;
-            background: #e2f0d9;
-            padding: 15px;
-            border-radius: 5px;
+        .barcode-box {
+            font-family: 'Libre Barcode 39', cursive, monospace;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+        .student-photo {
+            width: 85px;
+            height: 105px;
+            border: 1px solid #999;
+            object-fit: cover;
+            background: #eee;
+            text-align: center;
+            font-size: 10px;
+            line-height: 105px;
+            color: #666;
+        }
+        
+        /* Provisional Certificate Styles */
+        .pc-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 20px 0;
+            color: #000;
+        }
+        .pc-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 13px;
             margin-bottom: 25px;
         }
-        .certificates-panel h4 { margin: 0 0 10px 0; color: #385723; }
-        .cert-item { font-size: 13px; margin-bottom: 5px; font-weight: bold; color: #274e13; }
-        
-        .footer {
+        .pc-body-text {
+            font-size: 14px;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+        .fill-line {
+            border-bottom: 1px dotted #000;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        /* Consolidated Grade Sheet Styles */
+        .cgs-header-title {
+            background-color: #5b1184;
+            color: white;
+            text-align: center;
+            padding: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cgs-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+        .cgs-info-table td {
+            border: 1px solid #444;
+            padding: 5px 8px;
+        }
+        .year-block-title {
+            background: #eaeaea;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid #444;
+            padding: 4px;
+        }
+        .cgs-table-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .semester-subtable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        .semester-subtable th, .semester-subtable td {
+            border: 1px solid #5b1184;
+            padding: 3px 4px;
+            text-align: center;
+        }
+        .semester-subtable th {
+            background: #f2e6f9;
+            color: #000;
+        }
+        .semester-subtable td:nth-child(2) {
+            text-align: left;
+        }
+
+        /* Signatures & Footer */
+        .signatures-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             margin-top: 30px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
-            border-top: 1px dashed #999;
-            padding-top: 15px;
+        }
+        .qr-box {
+            text-align: center;
+            font-size: 9px;
+        }
+        .qr-box img {
+            width: 75px;
+            height: 75px;
         }
         .error-box { text-align: center; padding: 50px; color: #cc0000; }
     </style>
 </head>
 <body>
 
-    <div class="memo-container" id="memoContent">
-        <div class="error-box"><h2>Loading Complete Academic Record (1-1 to 4-2)...</h2></div>
+    <!-- Document Switcher Navigation -->
+    <div class="portal-nav" id="portalNav" style="display:none;">
+        <button class="doc-btn active" onclick="switchDoc('pc')">View Provisional Certificate (PC)</button>
+        <button class="doc-btn" onclick="switchDoc('cgs')">View Consolidated Grade Sheet (CGS)</button>
+    </div>
+
+    <!-- Container for dynamic content -->
+    <div id="memoContent">
+        <div class="document-sheet active" style="display:block;">
+            <div class="error-box"><h2>Loading Official Verification Records...</h2></div>
+        </div>
     </div>
 
     <script>
-        // Full 8-Semester Database Record Mapped by Secure Token
+        // Secure database record mapped by token
         const studentDatabase = {
             "248891deab574c4b8173a6dead509b24": {
                 htno: "21X01A6720",
                 name: "GUNDETI SHIVA RAJ",
                 fatherName: "GUNDETI LINGANNA",
-                department: "CSE(DS) - Computer Science & Engineering (Data Science)",
-                cgpa: "7.42",
-                pccStatus: "Verified & Issued",
-                cmmStatus: "Available / Consolidated Memo Ready",
-                semesters: {
-                    "1-1": {
-                        title: "B.TECH I YEAR I SEMESTER (NR21)",
-                        sgpa: "7.20",
-                        subjects: [
-                            { sno: 1, subCode: "MA101BS", name: "Matrices and Calculus", monthYear: "Jan 2022", grade: "B+", credits: "4.00", status: "PASS" },
-                            { sno: 2, subCode: "AP102BS", name: "Applied Physics", monthYear: "Jan 2022", grade: "A", credits: "4.00", status: "PASS" },
-                            { sno: 3, subCode: "CS103ES", name: "Programming for Problem Solving", monthYear: "Jan 2022", grade: "A+", credits: "3.00", status: "PASS" },
-                            { sno: 4, subCode: "EN104HS", name: "English", monthYear: "Jan 2022", grade: "B", credits: "2.00", status: "PASS" }
-                        ]
-                    },
-                    "1-2": {
-                        title: "B.TECH I YEAR II SEMESTER (NR21)",
-                        sgpa: "7.50",
-                        subjects: [
-                            { sno: 1, subCode: "MA201BS", name: "Ordinary Differential Equations and Vector Calculus", monthYear: "July 2022", grade: "A", credits: "4.00", status: "PASS" },
-                            { sno: 2, subCode: "CH202BS", name: "Engineering Chemistry", monthYear: "July 2022", grade: "B+", credits: "4.00", status: "PASS" },
-                            { sno: 3, subCode: "EE203ES", name: "Basic Electrical Engineering", monthYear: "July 2022", grade: "B", credits: "3.00", status: "PASS" }
-                        ]
-                    },
-                    "2-1": {
-                        title: "B.TECH II YEAR I SEMESTER (NR21)",
-                        sgpa: "7.10",
-                        subjects: [
-                            { sno: 1, subCode: "CS301PC", name: "Data Structures", monthYear: "Jan 2023", grade: "A", credits: "3.00", status: "PASS" },
-                            { sno: 2, subCode: "CS302PC", name: "Discrete Mathematics", monthYear: "Jan 2023", grade: "B+", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "CS303PC", name: "Computer Organization and Architecture", monthYear: "Jan 2023", grade: "B", credits: "3.00", status: "PASS" }
-                        ]
-                    },
-                    "2-2": {
-                        title: "B.TECH II YEAR II SEMESTER (NR21)",
-                        sgpa: "7.60",
-                        subjects: [
-                            { sno: 1, subCode: "CS401PC", name: "Operating Systems", monthYear: "July 2023", grade: "A+", credits: "3.00", status: "PASS" },
-                            { sno: 2, subCode: "CS402PC", name: "Database Management Systems", monthYear: "July 2023", grade: "A", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "SM403MS", name: "Business Economics and Financial Analysis", monthYear: "July 2023", grade: "B+", credits: "3.00", status: "PASS" }
-                        ]
-                    },
-                    "3-1": {
-                        title: "B.TECH III YEAR I SEMESTER (NR21)",
-                        sgpa: "7.80",
-                        subjects: [
-                            { sno: 1, subCode: "DS501PC", name: "Machine Learning", monthYear: "Jan 2024", grade: "A+", credits: "4.00", status: "PASS" },
-                            { sno: 2, subCode: "DS502PC", name: "Data Warehousing and Business Intelligence", monthYear: "Jan 2024", grade: "A", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "CS503PC", name: "Software Engineering", monthYear: "Jan 2024", grade: "B+", credits: "3.00", status: "PASS" }
-                        ]
-                    },
-                    "3-2": {
-                        title: "B.TECH III YEAR II SEMESTER (NR21)",
-                        sgpa: "7.30",
-                        subjects: [
-                            { sno: 1, subCode: "DS601PC", name: "Big Data Analytics", monthYear: "July 2024", grade: "A", credits: "4.00", status: "PASS" },
-                            { sno: 2, subCode: "DS602PC", name: "Artificial Intelligence", monthYear: "July 2024", grade: "B+", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "EN603HS", name: "Professional Practice, Law & Ethics", monthYear: "July 2024", grade: "A", credits: "2.00", status: "PASS" }
-                        ]
-                    },
-                    "4-1": {
-                        title: "B.TECH IV YEAR I SEMESTER (NR21)",
-                        sgpa: "7.90",
-                        subjects: [
-                            { sno: 1, subCode: "DS701PC", name: "Deep Learning", monthYear: "Jan 2025", grade: "A+", credits: "4.00", status: "PASS" },
-                            { sno: 2, subCode: "DS702PE", name: "Cloud Computing", monthYear: "Jan 2025", grade: "A", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "DS703PW", name: "Project Stage - I", monthYear: "Jan 2025", grade: "O", credits: "3.00", status: "PASS" }
-                        ]
-                    },
-                    "4-2": {
-                        title: "B.TECH IV YEAR II SEMESTER (NR21)",
-                        sgpa: "6.75",
-                        subjects: [
-                            { sno: 1, subCode: "SM4201MS", name: "ORGANIZATIONAL BEHAVIOR", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
-                            { sno: 2, subCode: "ME4233OE", name: "RENEWABLE ENERGY SOURCES", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
-                            { sno: 3, subCode: "DS4206PE", name: "HUMAN COMPUTER INTERACTION", monthYear: "April 2025", grade: "C", credits: "3.00", status: "PASS" },
-                            { sno: 4, subCode: "DS4202PC", name: "PROJECT STAGE - II", monthYear: "April 2025", grade: "A+", credits: "7.00", status: "PASS" }
-                        ]
-                    }
-                }
+                department: "B.Tech. COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)",
+                college: "XO-NREC, MEDCHAL",
+                pcNo: "3X010251525",
+                cgsNo: "2X010251525",
+                slNoPC: "X0 PC 01581",
+                slNoCGS: "X0 CGS 01595",
+                aadhaar: "XXXXXXXX2608",
+                admissionYear: "2021-2022",
+                passMonthYear: "July, 2025",
+                classAwarded: "SECOND CLASS",
+                cgpa: "6.36",
+                totalCreditsReg: "160",
+                totalCreditsSec: "160",
+                issueDate: "October 28, 2025"
             }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         const container = document.getElementById('memoContent');
+        const nav = document.getElementById('portalNav');
 
         if (token && studentDatabase[token]) {
-            const student = studentDatabase[token];
-            
-            let tabsHTML = '';
-            let sectionsHTML = '';
-            let first = true;
-
-            for (const [semKey, semData] of Object.entries(student.semesters)) {
-                let activeClass = first ? 'active' : '';
-                tabsHTML += `<button class="tab-btn ${activeClass}" onclick="switchSem('${semKey}', event)">Sem ${semKey}</button>`;
-
-                let rows = '';
-                semData.subjects.forEach(sub => {
-                    rows += `
-                        <tr>
-                            <td>${sub.sno}</td>
-                            <td>${sub.subCode}</td>
-                            <td>${sub.name}</td>
-                            <td>${sub.monthYear}</td>
-                            <td>${sub.grade}</td>
-                            <td>${sub.credits}</td>
-                            <td>${sub.status}</td>
-                        </tr>
-                    `;
-                });
-
-                sectionsHTML += `
-                    <div class="sem-section ${activeClass}" id="sem-${semKey}">
-                        <div class="results-title">${semData.title}</div>
-                        <table class="marks-table">
-                            <thead>
-                               <tr>
-                                   <th>S.No</th><th>SubCode</th><th>Subject</th><th>Month & Year</th><th>Grades</th><th>Credits (C)</th><th>Status</th>
-                               </tr>
-                            </thead>
-                            <tbody>${rows}</tbody>
-                        </table>
-                        <div class="summary-box">
-                            <div>Semester SGPA : ${semData.sgpa}</div>
-                            <div>Status : PASSED</div>
-                        </div>
-                    </div>
-                `;
-                first = false;
-            }
+            const s = studentDatabase[token];
+            nav.style.display = 'flex';
 
             container.innerHTML = `
-                <div class="college-header">
-                    <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
-                    <p>Permanently Affiliated to JNTUH | Approved by AICTE, New Delhi</p>
-                </div>
-
-                <table class="info-table">
-                    <tr>
-                        <td><strong>H.T.No :</strong> ${student.htno}</td>
-                        <td><strong>Name :</strong> ${student.name}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Father Name :</strong> ${student.fatherName}</td>
-                        <td><strong>Department :</strong> ${student.department}</td>
-                    </tr>
-                </table>
-
-                <div class="certificates-panel">
-                    <h4>Official Degree Credentials & Certificates Status:</h4>
-                    <div class="cert-item">✔ Provisional Certificate (PCC): ${student.pccStatus}</div>
-                    <div class="cert-item">✔ Consolidated Marks Memo (CMM): ${student.cmmStatus}</div>
-                    <div class="cert-item" style="margin-top:8px;">Cumulative Grade Point Average (CGPA): <strong>${student.cgpa}</strong></div>
-                </div>
-
-                <div style="font-weight:bold; margin-bottom: 8px; font-size: 13px;">Select Semester Transcript:</div>
-                <div class="nav-tabs">
-                    ${tabsHTML}
-                </div>
-
-                ${sectionsHTML}
-
-                <div class="footer">
-                    <div>
-                        <p style="margin:0; font-size:11px; color:#555;">Secure Web Verification System</p>
-                        <p style="margin:2px 0 0 0; font-size:10px; color:#888;">Token ID: ${token.substring(0,12)}...</p>
+                <!-- 1. PROVISIONAL CERTIFICATE (PC) -->
+                <div class="document-sheet active" id="sheet-pc">
+                    <div class="top-meta">
+                        <div>
+                            <div class="barcode-box">*${s.pcNo}*</div>
+                            <div style="font-size:10px; margin-top:2px;">College : XO-NREC, MEDCHAL</div>
+                            <div style="margin-top:5px; font-size:11px;">Sl.No. <span style="color:red;">${s.slNoPC}</span></div>
+                        </div>
+                        <div class="student-photo">PHOTO</div>
                     </div>
-                    <div>
-                        <p style="margin-bottom: 25px;">Controller of Examinations</p>
+
+                    <div class="college-header">
+                        <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
+                        <p>(UGC AUTONOMOUS)</p>
+                        <p style="font-size:9px;">(Approved by AICTE, New Delhi, Affiliated to JNTUH, Accredited by NBA & NAAC with 'A' Grade)</p>
+                        <p style="font-size:9px;">Maisammaguda (V), Dhulapally (P), Near Kompally, Medchal (M), Secunderabad - 500100.</p>
+                    </div>
+
+                    <div class="pc-title">PROVISIONAL CERTIFICATE</div>
+
+                    <div class="pc-details-grid">
+                        <div>PC No. : <strong>${s.pcNo}</strong></div>
+                        <div>CGS No. : <strong>${s.cgsNo}</strong></div>
+                        <div>HT.No. : <strong style="color:red;">${s.htno}</strong></div>
+                        <div>Aadhar No. : <strong>${s.aadhaar}</strong></div>
+                    </div>
+
+                    <div class="pc-body-text">
+                        This is to Certify that Mr. <span class="fill-link fill-line">${s.name}</span> Son of <span class="fill-line">${s.fatherName}</span> passed the <span class="fill-line">${s.department}</span> degree examination of Jawaharlal Nehru Technological University Hyderabad, held in <span class="fill-line">${s.passMonthYear}</span> and that he was placed in <span class="fill-line">${s.classAwarded}</span>.<br><br>
+                        He has satisfied all the requirements for the award of the degree.
+                    </div>
+
+                    <div class="signatures-row">
+                        <div>
+                            <p style="margin:0; font-size:11px;">Hyderabad - T.G</p>
+                            <p style="margin:2px 0 0 0; font-size:11px;">Date : ${s.issueDate}</p>
+                        </div>
+                        <div class="qr-box">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://btech-marks-memo.vercel.app/?token=${token}" alt="QR">
+                            <div style="font-size:8px; margin-top:2px;">Secure Verified</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <p style="margin-bottom:20px; font-size:11px;">CONTROLLER OF EXAMINATIONS</p>
+                            <p style="margin:0; font-size:11px;">PRINCIPAL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. CONSOLIDATED GRADE SHEET (CGS / CMM) -->
+                <div class="document-sheet" id="sheet-cgs">
+                    <div class="college-header" style="margin-bottom: 8px;">
+                        <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
+                        <p>(UGC AUTONOMOUS)</p>
+                        <p style="font-size:9px;">Approved by AICTE, New Delhi, Affiliated to JNTUH, Accredited by NBA & NAAC with 'A' Grade</p>
+                        <p style="font-size:9px;">Maisammaguda (V), Dhulapally (P), Near Kompally, Medchal (M), Secunderabad - 500100.</p>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                        <div class="student-photo" style="width:65px; height:80px; line-height:80px; font-size:9px;">PHOTO</div>
+                        <div style="text-align:center;">
+                            <div class="cgs-header-title" style="margin:0; padding:3px 15px; display:inline-block;">CONSOLIDATED GRADE SHEET</div>
+                            <div style="font-size:11px; font-weight:bold; margin-top:3px;">B.Tech. COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="barcode-box" style="font-size:26px;">*${s.cgsNo}*</div>
+                            <div style="font-size:9px;">Sl.No. <span style="color:red;">${s.slNoCGS}</span></div>
+                        </div>
+                    </div>
+
+                    <table class="cgs-info-table">
+                        <tr>
+                            <td><strong>Name :</strong> ${s.name}</td>
+                            <td><strong>Name of the College :</strong> ${s.college}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hall Ticket No :</strong> <span style="color:red;">${s.htno}</span></td>
+                            <td><strong>Month & Year of Pass :</strong> ${s.passMonthYear}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CGS No. :</strong> ${s.cgsNo}</td>
+                            <td><strong>Class Awarded :</strong> ${s.classAwarded}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year of Admission :</strong> ${s.admissionYear}</td>
+                            <td><strong>Aadhar No. :</strong> ${s.aadhaar}</td>
+                        </tr>
+                    </table>
+
+                    <!-- Semesters Layout Grid (1-1 to 4-2) -->
+                    <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#5b1184;">ACADEMIC TRANSCRIPT RECORD (1-1 TO 4-2)</div>
+                    
+                    <div class="cgs-table-grid">
+                        <!-- I YEAR I SEM -->
+                        <div>
+                            <div class="year-block-title">I YEAR - I SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>MA101BS</td><td>Matrices and Calculus</td><td>B+</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>AP102BS</td><td>Applied Physics</td><td>A</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>CS103ES</td><td>Programming for Problem Solving</td><td>A+</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- I YEAR II SEM -->
+                        <div>
+                            <div class="year-block-title">I YEAR - II SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>MA201BS</td><td>Ordinary Differential Equations</td><td>A</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>CH202BS</td><td>Engineering Chemistry</td><td>B+</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>EE203ES</td><td>Basic Electrical Engineering</td><td>B</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- II YEAR I SEM -->
+                        <div>
+                            <div class="year-block-title">II YEAR - I SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>CS301PC</td><td>Data Structures</td><td>A</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>CS302PC</td><td>Discrete Mathematics</td><td>B+</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>CS303PC</td><td>Computer Organization</td><td>B</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- II YEAR II SEM -->
+                        <div>
+                            <div class="year-block-title">II YEAR - II SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>CS401PC</td><td>Operating Systems</td><td>A+</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>CS402PC</td><td>Database Management Systems</td><td>A</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>SM403MS</td><td>Business Economics & Fin. Analysis</td><td>B+</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- III YEAR I SEM -->
+                        <div>
+                            <div class="year-block-title">III YEAR - I SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>DS501PC</td><td>Machine Learning</td><td>A+</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>DS502PC</td><td>Data Warehousing & BI</td><td>A</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>CS503PC</td><td>Software Engineering</td><td>B+</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- III YEAR II SEM -->
+                        <div>
+                            <div class="year-block-title">III YEAR - II SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>DS601PC</td><td>Big Data Analytics</td><td>A</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>DS602PC</td><td>Artificial Intelligence</td><td>B+</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>EN603HS</td><td>Professional Practice & Ethics</td><td>A</td><td>2.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- IV YEAR I SEM -->
+                        <div>
+                            <div class="year-block-title">IV YEAR - I SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>DS701PC</td><td>Deep Learning</td><td>A+</td><td>4.0</td><td>P</td></tr>
+                                <tr><td>DS702PE</td><td>Cloud Computing</td><td>A</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>DS703PW</td><td>Project Stage - I</td><td>O</td><td>3.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                        <!-- IV YEAR II SEM -->
+                        <div>
+                            <div class="year-block-title">IV YEAR - II SEMESTER</div>
+                            <table class="semester-subtable">
+                                <tr><th>SubCode</th><th>Subject Name</th><th>Gr</th><th>Cr</th><th>St</th></tr>
+                                <tr><td>SM4201MS</td><td>Organizational Behavior</td><td>C</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>ME4233OE</td><td>Renewable Energy Sources</td><td>C</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>DS4206PE</td><td>Human Computer Interaction</td><td>C</td><td>3.0</td><td>P</td></tr>
+                                <tr><td>DS4202PC</td><td>Project Stage - II</td><td>A+</td><td>7.0</td><td>P</td></tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #444; border-bottom:1px solid #444; padding:6px 0; font-size:11px; font-weight:bold;">
+                        <div>No. of Credits Registered : ${s.totalCreditsReg}</div>
+                        <div>No. of Credits Secured : ${s.totalCreditsSec}</div>
+                        <div>Aggregate Marks/CGPA Secured : ${s.cgpa}</div>
+                    </div>
+
+                    <div class="signatures-row" style="margin-top:15px;">
+                        <div>
+                            <p style="margin:0; font-size:10px;">Date of Issue : ${s.issueDate}</p>
+                            <p style="margin:3px 0 0 0; font-size:9px; color:#555;">Verified Official Academic Transcript</p>
+                        </div>
+                        <div class="qr-box">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://btech-marks-memo.vercel.app/?token=${token}" alt="QR">
+                            <div style="font-size:8px;">Scan to Verify</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <p style="margin-bottom:15px; font-size:10px;">CONTROLLER OF EXAMINATIONS</p>
+                            <p style="margin:0; font-size:10px;">PRINCIPAL</p>
+                        </div>
                     </div>
                 </div>
             `;
         } else {
             container.innerHTML = `
-                <div class="error-box">
-                    <h2>Invalid or Expired Security Token</h2>
-                    <p>The security token provided is invalid or unrecognized.</p>
+                <div class="document-sheet active" style="display:block;">
+                    <div class="error-box">
+                        <h2>Invalid or Missing Security Token</h2>
+                        <p>Please use a valid secure token URL generated by your institutional database.</p>
+                    </div>
                 </div>
             `;
         }
 
-        function switchSem(semKey, event) {
-            document.querySelectorAll('.sem-section').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById('sem-' + semKey).classList.add('active');
+        function switchDoc(type) {
+            document.querySelectorAll('.document-sheet').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.doc-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('sheet-' + type).classList.add('active');
             event.target.classList.add('active');
         }
     </script>
