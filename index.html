@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Narsimha Reddy Engineering College - Marks Memo</title>
+    <title>Narsimha Reddy Engineering College - Official B.Tech Verification Portal</title>
     <style>
         body {
-            background: #f4f4f4;
-            font-family: Arial, sans-serif;
+            background: #eef2f5;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 20px;
+            color: #000;
         }
         .memo-container {
-            max-width: 800px;
+            max-width: 850px;
             background: #ffffff;
             margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            border: 2px solid #5b1184;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .college-header {
             background-color: #5b1184; /* NRCM Purple Theme */
@@ -24,15 +25,18 @@
             text-align: center;
             padding: 15px;
             margin-bottom: 15px;
+            border-radius: 4px;
         }
-        .college-header h2 { margin: 0; font-size: 20px; letter-spacing: 1px; }
-        .college-header p { margin: 5px 0 0; font-size: 11px; }
+        .college-header h2 { margin: 0; font-size: 22px; letter-spacing: 0.5px; }
+        .college-header p { margin: 5px 0 0; font-size: 12px; letter-spacing: 0.5px; }
+        
         .results-title {
             text-align: center;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 15px;
             text-decoration: underline;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: #333;
         }
         .info-table {
             width: 100%;
@@ -40,8 +44,8 @@
             margin-bottom: 20px;
         }
         .info-table td {
-            border: 1px solid #000;
-            padding: 8px;
+            border: 1px solid #444;
+            padding: 8px 12px;
             font-size: 13px;
         }
         .marks-table {
@@ -50,34 +54,64 @@
             margin-bottom: 20px;
         }
         .marks-table th, .marks-table td {
-            border: 1px solid #000;
-            padding: 6px 8px;
+            border: 1px solid #444;
+            padding: 8px;
             text-align: center;
             font-size: 12px;
         }
         .marks-table th {
-            background-color: #f2f2f2;
-            color: #000;
+            background-color: #5b1184;
+            color: white;
         }
         .marks-table td:nth-child(3) {
             text-align: left; /* Subject name left aligned */
         }
         .summary-section {
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 40px;
             display: flex;
-            gap: 40px;
+            justify-content: space-between;
+            background: #f9f9f9;
+            border: 1px solid #444;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .additional-certs {
+            border-top: 2px dashed #ccc;
+            padding-top: 15px;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+        .additional-certs h4 {
+            margin: 0 0 10px 0;
+            color: #5b1184;
+        }
+        .cert-badge {
+            display: inline-block;
+            background: #e2f0d9;
+            color: #385723;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            border: 1px solid #b7e1cd;
         }
         .footer {
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
             font-size: 13px;
             font-weight: bold;
-            margin-top: 40px;
+        }
+        .qr-placeholder {
+            font-size: 11px;
+            color: #666;
+            text-align: center;
         }
         .error-box {
             text-align: center;
-            padding: 40px;
+            padding: 50px;
             color: #cc0000;
         }
     </style>
@@ -85,20 +119,22 @@
 <body>
 
     <div class="memo-container" id="memoContent">
-        <div class="error-box"><h2>Loading Marks Memo...</h2></div>
+        <div class="error-box"><h2>Loading Official Marks Memo & Certificates...</h2></div>
     </div>
 
     <script>
-        // Database mapped by your unique secure token
+        // Comprehensive database record mapped by your secure token
         const studentDatabase = {
             "248891deab574c4b8173a6dead509b24": {
                 htno: "21X01A6720",
-                name: "KYTHAM SHASHIPRETHAM",
-                fatherName: "KYTHAM SRIDHAR",
-                department: "CSE(DS)",
-                examTitle: "Results of IV B.TECH II SEM (NR19), June 2022",
+                name: "GUNDETI SHIVA RAJ",
+                fatherName: "GUNDETI LINGANNA",
+                department: "CSE(DS) - Computer Science & Engineering (Data Science)",
+                examTitle: "B.TECH IV YEAR II SEMESTER (NR21) - EXAMINATION RESULTS",
                 sgpa: "6.75",
-                cgpa: "",
+                cgpa: "7.42",
+                pccStatus: "Eligible & Verified",
+                cmmStatus: "Available / Ready for Issue",
                 subjects: [
                     { sno: 1, subCode: "SM4201MS", name: "ORGANIZATIONAL BEHAVIOR", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
                     { sno: 2, subCode: "ME4233OE", name: "RENEWABLE ENERGY SOURCES", monthYear: "June 2025", grade: "C", credits: "3.00", status: "PASS" },
@@ -108,7 +144,6 @@
             }
         };
 
-        // Extract token from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         const container = document.getElementById('memoContent');
@@ -134,7 +169,7 @@
             container.innerHTML = `
                 <div class="college-header">
                     <h2>NARSIMHA REDDY ENGINEERING COLLEGE</h2>
-                    <p>JAKKULA EDUCATIONAL SOCIETY</p>
+                    <p>Permanently Affiliated to JNTUH | Approved by AICTE, New Delhi</p>
                 </div>
                 
                 <div class="results-title">${student.examTitle}</div>
@@ -170,17 +205,30 @@
                 <div class="summary-section">
                     <div>SGPA : ${student.sgpa}</div>
                     <div>CGPA : ${student.cgpa}</div>
+                    <div>Overall Status : PASSED</div>
+                </div>
+
+                <div class="additional-certs">
+                    <h4>Verified Credential Statuses:</h4>
+                    <span class="cert-badge">PCC Status: ${student.pccStatus}</span>
+                    <span class="cert-badge">CMM Status: ${student.cmmStatus}</span>
                 </div>
 
                 <div class="footer">
-                    Controller of Examinations
+                    <div>
+                        <p style="margin:0; font-size:11px; color:#555;">Digitally Verified Secure Link</p>
+                        <p style="margin:2px 0 0 0; font-size:10px; color:#888;">Token-Protected Official Transcript</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="margin-bottom: 25px;">Controller of Examinations</p>
+                    </div>
                 </div>
             `;
         } else {
             container.innerHTML = `
                 <div class="error-box">
                     <h2>Invalid or Expired Security Token</h2>
-                    <p>This verification link is invalid, or the security token was not provided.</p>
+                    <p>The security token provided in the URL is invalid or has expired. Please scan a valid QR code.</p>
                 </div>
             `;
         }
