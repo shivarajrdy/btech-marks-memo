@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Narsimha Reddy Engineering College - Official Transcript & Certificate Verification</title>
+    <!-- Import Barcode Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap" rel="stylesheet">
     <style>
         body {
             background: #d4d4d4;
@@ -64,9 +66,11 @@
             margin-bottom: 10px;
         }
         .barcode-box {
-            font-family: 'Libre Barcode 39', cursive, monospace;
-            font-size: 32px;
-            letter-spacing: 2px;
+            font-family: 'Libre Barcode 39', cursive;
+            font-size: 55px;
+            line-height: 1;
+            letter-spacing: 0px;
+            margin-bottom: -5px;
         }
         .student-photo {
             width: 85px;
@@ -196,7 +200,6 @@
     </div>
 
     <script>
-        // Secure database record mapped by token
         const studentDatabase = {
             "248891deab574c4b8173a6dead509b24": {
                 htno: "21X01A6720",
@@ -235,7 +238,7 @@
                         <div>
                             <div class="barcode-box">*${s.pcNo}*</div>
                             <div style="font-size:10px; margin-top:2px;">College : XO-NREC, MEDCHAL</div>
-                            <div style="margin-top:5px; font-size:11px;">Sl.No. <span style="color:red;">${s.slNoPC}</span></div>
+                            <div style="margin-top:3px; font-size:11px;">Sl.No. <span style="color:red;">${s.slNoPC}</span></div>
                         </div>
                         <div class="student-photo">PHOTO</div>
                     </div>
@@ -257,7 +260,7 @@
                     </div>
 
                     <div class="pc-body-text">
-                        This is to Certify that Mr. <span class="fill-link fill-line">${s.name}</span> Son of <span class="fill-line">${s.fatherName}</span> passed the <span class="fill-line">${s.department}</span> degree examination of Jawaharlal Nehru Technological University Hyderabad, held in <span class="fill-line">${s.passMonthYear}</span> and that he was placed in <span class="fill-line">${s.classAwarded}</span>.<br><br>
+                        This is to Certify that Mr. <span class="fill-line">${s.name}</span> Son of <span class="fill-line">${s.fatherName}</span> passed the <span class="fill-line">${s.department}</span> degree examination of Jawaharlal Nehru Technological University Hyderabad, held in <span class="fill-line">${s.passMonthYear}</span> and that he was placed in <span class="fill-line">${s.classAwarded}</span>.<br><br>
                         He has satisfied all the requirements for the award of the degree.
                     </div>
 
@@ -293,8 +296,8 @@
                             <div style="font-size:11px; font-weight:bold; margin-top:3px;">B.Tech. COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</div>
                         </div>
                         <div style="text-align:right;">
-                            <div class="barcode-box" style="font-size:26px;">*${s.cgsNo}*</div>
-                            <div style="font-size:9px;">Sl.No. <span style="color:red;">${s.slNoCGS}</span></div>
+                            <div class="barcode-box" style="font-size:45px;">*${s.cgsNo}*</div>
+                            <div style="font-size:9px; margin-top: -2px;">Sl.No. <span style="color:red;">${s.slNoCGS}</span></div>
                         </div>
                     </div>
 
@@ -317,11 +320,9 @@
                         </tr>
                     </table>
 
-                    <!-- Semesters Layout Grid (1-1 to 4-2) -->
                     <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#5b1184;">ACADEMIC TRANSCRIPT RECORD (1-1 TO 4-2)</div>
                     
                     <div class="cgs-table-grid">
-                        <!-- I YEAR I SEM -->
                         <div>
                             <div class="year-block-title">I YEAR - I SEMESTER</div>
                             <table class="semester-subtable">
@@ -331,7 +332,6 @@
                                 <tr><td>CS103ES</td><td>Programming for Problem Solving</td><td>A+</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- I YEAR II SEM -->
                         <div>
                             <div class="year-block-title">I YEAR - II SEMESTER</div>
                             <table class="semester-subtable">
@@ -341,7 +341,6 @@
                                 <tr><td>EE203ES</td><td>Basic Electrical Engineering</td><td>B</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- II YEAR I SEM -->
                         <div>
                             <div class="year-block-title">II YEAR - I SEMESTER</div>
                             <table class="semester-subtable">
@@ -351,7 +350,6 @@
                                 <tr><td>CS303PC</td><td>Computer Organization</td><td>B</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- II YEAR II SEM -->
                         <div>
                             <div class="year-block-title">II YEAR - II SEMESTER</div>
                             <table class="semester-subtable">
@@ -361,7 +359,6 @@
                                 <tr><td>SM403MS</td><td>Business Economics & Fin. Analysis</td><td>B+</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- III YEAR I SEM -->
                         <div>
                             <div class="year-block-title">III YEAR - I SEMESTER</div>
                             <table class="semester-subtable">
@@ -371,7 +368,6 @@
                                 <tr><td>CS503PC</td><td>Software Engineering</td><td>B+</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- III YEAR II SEM -->
                         <div>
                             <div class="year-block-title">III YEAR - II SEMESTER</div>
                             <table class="semester-subtable">
@@ -381,7 +377,6 @@
                                 <tr><td>EN603HS</td><td>Professional Practice & Ethics</td><td>A</td><td>2.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- IV YEAR I SEM -->
                         <div>
                             <div class="year-block-title">IV YEAR - I SEMESTER</div>
                             <table class="semester-subtable">
@@ -391,7 +386,6 @@
                                 <tr><td>DS703PW</td><td>Project Stage - I</td><td>O</td><td>3.0</td><td>P</td></tr>
                             </table>
                         </div>
-                        <!-- IV YEAR II SEM -->
                         <div>
                             <div class="year-block-title">IV YEAR - II SEMESTER</div>
                             <table class="semester-subtable">
