@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Narsimha Reddy Engineering College - Comprehensive B.Tech Transcript & Verification</title>
+    <title>Narsimha Reddy Engineering College - Complete B.Tech Transcript (1-1 to 4-2)</title>
     <style>
         body {
             background: #eef2f5;
@@ -130,11 +130,11 @@
 <body>
 
     <div class="memo-container" id="memoContent">
-        <div class="error-box"><h2>Loading Academic Record (1-1 to 4-2)...</h2></div>
+        <div class="error-box"><h2>Loading Complete Academic Record (1-1 to 4-2)...</h2></div>
     </div>
 
     <script>
-        // Multi-semester database record mapped by secure token
+        // Full 8-Semester Database Record Mapped by Secure Token
         const studentDatabase = {
             "248891deab574c4b8173a6dead509b24": {
                 htno: "21X01A6720",
@@ -151,7 +151,62 @@
                         subjects: [
                             { sno: 1, subCode: "MA101BS", name: "Matrices and Calculus", monthYear: "Jan 2022", grade: "B+", credits: "4.00", status: "PASS" },
                             { sno: 2, subCode: "AP102BS", name: "Applied Physics", monthYear: "Jan 2022", grade: "A", credits: "4.00", status: "PASS" },
-                            { sno: 3, subCode: "CS103ES", name: "Programming for Problem Solving", monthYear: "Jan 2022", grade: "A+", credits: "3.00", status: "PASS" }
+                            { sno: 3, subCode: "CS103ES", name: "Programming for Problem Solving", monthYear: "Jan 2022", grade: "A+", credits: "3.00", status: "PASS" },
+                            { sno: 4, subCode: "EN104HS", name: "English", monthYear: "Jan 2022", grade: "B", credits: "2.00", status: "PASS" }
+                        ]
+                    },
+                    "1-2": {
+                        title: "B.TECH I YEAR II SEMESTER (NR21)",
+                        sgpa: "7.50",
+                        subjects: [
+                            { sno: 1, subCode: "MA201BS", name: "Ordinary Differential Equations and Vector Calculus", monthYear: "July 2022", grade: "A", credits: "4.00", status: "PASS" },
+                            { sno: 2, subCode: "CH202BS", name: "Engineering Chemistry", monthYear: "July 2022", grade: "B+", credits: "4.00", status: "PASS" },
+                            { sno: 3, subCode: "EE203ES", name: "Basic Electrical Engineering", monthYear: "July 2022", grade: "B", credits: "3.00", status: "PASS" }
+                        ]
+                    },
+                    "2-1": {
+                        title: "B.TECH II YEAR I SEMESTER (NR21)",
+                        sgpa: "7.10",
+                        subjects: [
+                            { sno: 1, subCode: "CS301PC", name: "Data Structures", monthYear: "Jan 2023", grade: "A", credits: "3.00", status: "PASS" },
+                            { sno: 2, subCode: "CS302PC", name: "Discrete Mathematics", monthYear: "Jan 2023", grade: "B+", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "CS303PC", name: "Computer Organization and Architecture", monthYear: "Jan 2023", grade: "B", credits: "3.00", status: "PASS" }
+                        ]
+                    },
+                    "2-2": {
+                        title: "B.TECH II YEAR II SEMESTER (NR21)",
+                        sgpa: "7.60",
+                        subjects: [
+                            { sno: 1, subCode: "CS401PC", name: "Operating Systems", monthYear: "July 2023", grade: "A+", credits: "3.00", status: "PASS" },
+                            { sno: 2, subCode: "CS402PC", name: "Database Management Systems", monthYear: "July 2023", grade: "A", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "SM403MS", name: "Business Economics and Financial Analysis", monthYear: "July 2023", grade: "B+", credits: "3.00", status: "PASS" }
+                        ]
+                    },
+                    "3-1": {
+                        title: "B.TECH III YEAR I SEMESTER (NR21)",
+                        sgpa: "7.80",
+                        subjects: [
+                            { sno: 1, subCode: "DS501PC", name: "Machine Learning", monthYear: "Jan 2024", grade: "A+", credits: "4.00", status: "PASS" },
+                            { sno: 2, subCode: "DS502PC", name: "Data Warehousing and Business Intelligence", monthYear: "Jan 2024", grade: "A", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "CS503PC", name: "Software Engineering", monthYear: "Jan 2024", grade: "B+", credits: "3.00", status: "PASS" }
+                        ]
+                    },
+                    "3-2": {
+                        title: "B.TECH III YEAR II SEMESTER (NR21)",
+                        sgpa: "7.30",
+                        subjects: [
+                            { sno: 1, subCode: "DS601PC", name: "Big Data Analytics", monthYear: "July 2024", grade: "A", credits: "4.00", status: "PASS" },
+                            { sno: 2, subCode: "DS602PC", name: "Artificial Intelligence", monthYear: "July 2024", grade: "B+", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "EN603HS", name: "Professional Practice, Law & Ethics", monthYear: "July 2024", grade: "A", credits: "2.00", status: "PASS" }
+                        ]
+                    },
+                    "4-1": {
+                        title: "B.TECH IV YEAR I SEMESTER (NR21)",
+                        sgpa: "7.90",
+                        subjects: [
+                            { sno: 1, subCode: "DS701PC", name: "Deep Learning", monthYear: "Jan 2025", grade: "A+", credits: "4.00", status: "PASS" },
+                            { sno: 2, subCode: "DS702PE", name: "Cloud Computing", monthYear: "Jan 2025", grade: "A", credits: "3.00", status: "PASS" },
+                            { sno: 3, subCode: "DS703PW", name: "Project Stage - I", monthYear: "Jan 2025", grade: "O", credits: "3.00", status: "PASS" }
                         ]
                     },
                     "4-2": {
@@ -181,7 +236,7 @@
 
             for (const [semKey, semData] of Object.entries(student.semesters)) {
                 let activeClass = first ? 'active' : '';
-                tabsHTML += `<button class="tab-btn ${activeClass}" onclick="switchSem('${semKey}')">Sem ${semKey}</button>`;
+                tabsHTML += `<button class="tab-btn ${activeClass}" onclick="switchSem('${semKey}', event)">Sem ${semKey}</button>`;
 
                 let rows = '';
                 semData.subjects.forEach(sub => {
@@ -268,7 +323,7 @@
             `;
         }
 
-        function switchSem(semKey) {
+        function switchSem(semKey, event) {
             document.querySelectorAll('.sem-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             document.getElementById('sem-' + semKey).classList.add('active');
